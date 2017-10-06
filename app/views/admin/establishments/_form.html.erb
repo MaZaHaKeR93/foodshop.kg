@@ -1,0 +1,39 @@
+<%= form_for [:admin, @establishment] do |f| %>
+
+	<div style="float: right;">
+		<div class="alert alert-danger" role="alert">
+			<% if @establishment.errors.any? %>
+				<div class="errors">
+					Total errors: <%= @establishment.errors.count %>
+					<ul>
+						<% @establishment.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	
+	<div style="float: left;">
+		<div>
+			<%= f.label :Название %><br>
+			<%= f.text_field :title %>
+		</div><br>
+
+		<div>
+			<%= f.label :Описание %><br>
+			<%= f.text_area :description %>
+		</div><br>
+
+		<div>
+			<%= f.label :Изображение %><br>
+			<%= f.file_field :image %>
+		</div><br>
+		
+		<div>
+			<%= f.submit %><br>
+		</div>
+		
+	</div>
+<% end %>

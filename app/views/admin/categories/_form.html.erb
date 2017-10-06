@@ -1,0 +1,17 @@
+<%= form_for [:admin, @category] do |f| %>
+	<div style="float: left;">
+		<div>
+			<%= f.label :Название %><br>
+			<%= f.text_field :title %>
+		</div><br>
+
+		<div>
+			<%= f.label :Заведение %><br>
+			<%= f.collection_select :establishment_id, Establishment.all, :id, :title %>
+		</div><br>
+
+		<div>
+			<%= f.submit %><br>
+		</div>
+	</div>
+<% end %>

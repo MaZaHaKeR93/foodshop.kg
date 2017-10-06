@@ -1,0 +1,20 @@
+<h1>Все заведения:</h1>
+<table class="table table-bordered">
+	<tr>
+		<th>Название</th>
+		<th>Описание</th>
+		<th>Картинка</th>
+		<th>Редактировать</th>
+		<th>Удалить</th>
+	</tr>
+
+	<% @establishments.each do |establishment| %>
+		<tr>
+			<td><%= establishment.title %></td>
+			<td><%= truncate(establishment.description, length: 100) %></td>
+			<td><%= image_tag("/uploads/establishments/#{establishment.id}", size: '30') %></td>
+      <td><%= link_to 'Edit', edit_admin_establishment_path(establishment) %></td>
+      <td><%= link_to 'Destroy', admin_establishment_path(establishment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+</table>

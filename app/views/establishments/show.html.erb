@@ -1,0 +1,48 @@
+<div class="row jumbotron">
+	<div class="col-md-3">
+		<%= image_tag("/uploads/establishments/#{@establishment.id}", size: '300', :class =>"img-rounded") %>
+	</div>
+	<div class="col-md-9">
+		<div class="row">
+			<div class="col-md-12 col-md-offset-1">				
+				<h1><%= @establishment.title %></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-md-offset-1	">				
+				<%= @establishment.description %> <br>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<% @establishment.categories.each do |category| %>
+			<h2><%= category.title %></h2>
+			<table class=table>
+				<tr>
+					<th>Название</th>
+					<th width="600px">Описание</th>
+					<th>Стоимость</th>
+					<th>Количество</th>
+				</tr>	
+				<% category.dishes.each do |dish|%>
+					<tr>
+							<td><%= dish.title %></td>
+							<td><%= truncate(dish.description, length: 95) %></td>
+							<td><%= dish.price %></td>
+							<td>
+								<%= form_for @line_item, remote: true do |f| %>
+									<%= f.hidden_field :title, value: dish.title %>
+									<%= f.hidden_field :price, value: dish.price %>
+									<%= f.hidden_field :cart_id, value: current_cart.id %>
+									<%= f.number_field :quantity, min: 1, value: 1 %>	
+									<%= f.submit "Добавить" %>						
+								<% end %>
+							</td>
+						</tr>
+				<% end %>
+			</table>			
+		<% end %>
+	</div>	
+</div>
