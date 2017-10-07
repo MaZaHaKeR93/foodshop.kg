@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'establishments#index'
+  devise_for :users
   delete 'line_items/destroy_all' => 'line_items#destroy_all'
   resources :carts
   resources :establishments, only: [:show, :index]

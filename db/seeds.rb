@@ -28,7 +28,8 @@
 # Dish.create!(title: "dish7", price: 100,  description: "rn rnrwn wr rwrwynwrynrywn", category: 15)
 # Dish.create!(title: "dish8", price: 100,   description: "nwyrnrywnwrynwrynwrywn yrnwrn", category: 14)
 # Dish.create!(title: "dish9", price: 100,  description: "Мrnrwynwyrnrywnrwynrynnrwе", category: 13)
-admin = User.create!(username: 'Andrew', email: 'admin@admin.ru', password: 'qwerty')
+cart = Cart.create!()
+admin = User.create!(username: 'Andrew', email: 'admin@admin.ru', password: 'qwerty', admin: true)
 user = User.create!(username: 'User', email: 'user@user.ru', password: 'qwerty')
 
 

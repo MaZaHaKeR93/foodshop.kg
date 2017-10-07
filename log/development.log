@@ -34582,3 +34582,727 @@ Processing by EstablishmentsController#show as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
   Rendered line_items/_line_item.html.erb (2.5ms)
 Completed 200 OK in 74ms (Views: 69.8ms | ActiveRecord: 1.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 1]]
+  [1m[36m (91.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (85.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (110.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEstablishments (20170825133328)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "establishments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170825133328"]]
+  [1m[35m (113.1ms)[0m  commit transaction
+Migrating to CreateDishes (20170825133556)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "price" decimal, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE  INDEX "index_dishes_on_category_id" ON "dishes" ("category_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170825133556"]]
+  [1m[36m (83.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCarts (20170828141041)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170828141041"]]
+  [1m[36m (85.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLineItems (20170828141635)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "price" decimal, "quantity" integer, "cart_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_line_items_on_cart_id" ON "line_items" ("cart_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170828141635"]]
+  [1m[35m (118.0ms)[0m  commit transaction
+Migrating to CreateCategories (20170829074359)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "establishment_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_categories_on_establishment_id" ON "categories" ("establishment_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170829074359"]]
+  [1m[36m (106.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddAttachmentImageToEstablishments (20171006134611)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_name" varchar[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "establishments" ADD "image_content_type" varchar
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_size" integer[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "establishments" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171006134611"]]
+  [1m[35m (139.0ms)[0m  commit transaction
+Migrating to CreateUsers (20171007141144)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (11.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171007141144"]]
+  [1m[35m (110.1ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20171007141657)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20171007141657"]]
+  [1m[36m (83.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:35:40 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1  [["id", 3]]
+Completed 404 Not Found in 30ms (ActiveRecord: 0.8ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Establishment with 'id'=3):
+  app/controllers/establishments_controller.rb:7:in `show'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (739.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (765.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:35:48 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 401ms (Views: 398.8ms | ActiveRecord: 1.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "encrypted_password", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "Andrew"], ["email", "admin@admin.ru"], ["encrypted_password", "$2a$11$ZxB/MsFszblAxkvsfAQsQeR7U/19Tr79S5EHO0SpFi8YNLSTTPH6i"], ["admin", "t"], ["created_at", "2017-10-07 15:35:56.968806"], ["updated_at", "2017-10-07 15:35:56.968806"]]
+  [1m[36m (88.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user@user.ru' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["username", "User"], ["email", "user@user.ru"], ["encrypted_password", "$2a$11$lxMKek6S3NlRJM/yLQqlee9rY6dVHd1N3EqhxaBR224uT84fdDCZO"], ["created_at", "2017-10-07 15:35:57.250769"], ["updated_at", "2017-10-07 15:35:57.250769"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-bt5p7e.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1jsmsl6.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1jsmsl6.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1jsmsl6.png[0]' -auto-orient -resize "300x300>" '/tmp/47044d9831cbb40c847475b17d5ff59d20171007-15461-9g0cmn'
+  [1m[35m (0.3ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-pyj0h1.png'
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Purdy Group"], ["description", "Et quo animi velit."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:35:58.047591"], ["created_at", "2017-10-07 15:35:58.149145"], ["updated_at", "2017-10-07 15:35:58.149145"]]
+  [1m[35m (76.3ms)[0m  commit transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-cj0z0t.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-11uxdqx.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-11uxdqx.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-11uxdqx.png[0]' -auto-orient -resize "300x300>" '/tmp/a57e2b4326dd9f963e910b31cd2f862320171007-15461-14wtu60'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-18h6n0c.png'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Kerluke, Effertz and O'Conner"], ["description", "Non quas voluptatem soluta esse iste sunt ipsum aut."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:35:58.237433"], ["created_at", "2017-10-07 15:35:58.308999"], ["updated_at", "2017-10-07 15:35:58.308999"]]
+  [1m[36m (74.3ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-va7y8t.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1jtg7nh.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1jtg7nh.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1jtg7nh.png[0]' -auto-orient -resize "300x300>" '/tmp/bf5385ad79c7cf76b1dcb6b7abfdb2b920171007-15461-lr1k7h'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-x8izu.png'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Cassin, Kreiger and Kiehn"], ["description", "Aut quasi consequuntur qui reiciendis."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:35:58.393009"], ["created_at", "2017-10-07 15:35:58.460803"], ["updated_at", "2017-10-07 15:35:58.460803"]]
+  [1m[35m (88.7ms)[0m  commit transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-aollfb.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-fpf0p7.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-fpf0p7.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-fpf0p7.png[0]' -auto-orient -resize "300x300>" '/tmp/7b3937b1b5d2a7ec59df1da24cabf41a20171007-15461-1becaxb'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1gkwyru.png'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Ward, Sauer and Swaniawski"], ["description", "Vel aliquid debitis sit veniam."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:35:58.559089"], ["created_at", "2017-10-07 15:35:58.628280"], ["updated_at", "2017-10-07 15:35:58.628280"]]
+  [1m[36m (254.0ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-10g7l97.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1ao0z35.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1ao0z35.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-1ao0z35.png[0]' -auto-orient -resize "300x300>" '/tmp/db6836411ac02a974626087e8118702c20171007-15461-1w5f8vj'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15461-41mpmt.png'
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Rodriguez, Daniel and Kuhlman"], ["description", "Quia rerum distinctio voluptates beatae in quod aperiam expedita."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:35:58.891739"], ["created_at", "2017-10-07 15:35:58.958325"], ["updated_at", "2017-10-07 15:35:58.958325"]]
+  [1m[35m (59.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "mint green"], ["establishment_id", 5], ["created_at", "2017-10-07 15:35:59.033914"], ["updated_at", "2017-10-07 15:35:59.033914"]]
+  [1m[36m (109.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Katsu Curry"], ["price", 35.0], ["description", "Eum voluptatem atque optio sapiente."], ["category_id", 1], ["created_at", "2017-10-07 15:35:59.154581"], ["updated_at", "2017-10-07 15:35:59.154581"]]
+  [1m[35m (98.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Souvlaki"], ["price", 42.0], ["description", "Deleniti est sapiente porro itaque."], ["category_id", 1], ["created_at", "2017-10-07 15:35:59.257767"], ["updated_at", "2017-10-07 15:35:59.257767"]]
+  [1m[36m (114.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pasta with Tomato and Basil"], ["price", 34.0], ["description", "Ut et pariatur tempora animi culpa dolores."], ["category_id", 1], ["created_at", "2017-10-07 15:35:59.376335"], ["updated_at", "2017-10-07 15:35:59.376335"]]
+  [1m[35m (74.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Pappardelle alla Bolognese"], ["price", 19.0], ["description", "Id cumque nemo deleniti."], ["category_id", 1], ["created_at", "2017-10-07 15:35:59.454050"], ["updated_at", "2017-10-07 15:35:59.454050"]]
+  [1m[36m (74.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "pink"], ["establishment_id", 3], ["created_at", "2017-10-07 15:35:59.531268"], ["updated_at", "2017-10-07 15:35:59.531268"]]
+  [1m[35m (110.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Bruschette with Tomato"], ["price", 26.0], ["description", "Eos et temporibus est."], ["category_id", 2], ["created_at", "2017-10-07 15:35:59.644604"], ["updated_at", "2017-10-07 15:35:59.644604"]]
+  [1m[36m (72.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Souvlaki"], ["price", 29.0], ["description", "Soluta consectetur ut omnis velit autem."], ["category_id", 2], ["created_at", "2017-10-07 15:35:59.720587"], ["updated_at", "2017-10-07 15:35:59.720587"]]
+  [1m[35m (87.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Pork belly buns"], ["price", 23.0], ["description", "Minima accusamus ea dolorum at repellat."], ["category_id", 2], ["created_at", "2017-10-07 15:35:59.811741"], ["updated_at", "2017-10-07 15:35:59.811741"]]
+  [1m[36m (85.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Califlower penne"], ["price", 31.0], ["description", "Non placeat sed totam vitae cumque velit ut sapiente."], ["category_id", 2], ["created_at", "2017-10-07 15:35:59.900560"], ["updated_at", "2017-10-07 15:35:59.900560"]]
+  [1m[35m (85.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "cyan"], ["establishment_id", 1], ["created_at", "2017-10-07 15:35:59.989409"], ["updated_at", "2017-10-07 15:35:59.989409"]]
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pork sausage roll"], ["price", 34.0], ["description", "Illum voluptatem fugiat odio reiciendis quis ea in voluptas."], ["category_id", 3], ["created_at", "2017-10-07 15:36:00.067019"], ["updated_at", "2017-10-07 15:36:00.067019"]]
+  [1m[35m (100.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Teriyaki Chicken donburi"], ["price", 35.0], ["description", "Aut qui ipsam laudantium libero aliquid."], ["category_id", 3], ["created_at", "2017-10-07 15:36:00.170468"], ["updated_at", "2017-10-07 15:36:00.170468"]]
+  [1m[36m (125.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Linguine with clams"], ["price", 39.0], ["description", "Consequuntur sit voluptatem ut iusto at."], ["category_id", 3], ["created_at", "2017-10-07 15:36:00.299973"], ["updated_at", "2017-10-07 15:36:00.299973"]]
+  [1m[35m (118.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Barbecue Ribs"], ["price", 12.0], ["description", "Aut deserunt ut neque incidunt."], ["category_id", 3], ["created_at", "2017-10-07 15:36:00.422500"], ["updated_at", "2017-10-07 15:36:00.422500"]]
+  [1m[36m (73.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "green"], ["establishment_id", 3], ["created_at", "2017-10-07 15:36:00.499608"], ["updated_at", "2017-10-07 15:36:00.499608"]]
+  [1m[35m (96.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Fettuccine Alfredo"], ["price", 25.0], ["description", "Non ea ab quia qui dolore molestias voluptates dolorum."], ["category_id", 4], ["created_at", "2017-10-07 15:36:00.599717"], ["updated_at", "2017-10-07 15:36:00.599717"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fettuccine Alfredo"], ["price", 32.0], ["description", "Aut nihil enim voluptas necessitatibus."], ["category_id", 4], ["created_at", "2017-10-07 15:36:00.688452"], ["updated_at", "2017-10-07 15:36:00.688452"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Califlower penne"], ["price", 12.0], ["description", "Odit et enim fugiat quia vero."], ["category_id", 4], ["created_at", "2017-10-07 15:36:00.776618"], ["updated_at", "2017-10-07 15:36:00.776618"]]
+  [1m[36m (86.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Cheeseburger"], ["price", 49.0], ["description", "Tempore ratione repudiandae accusantium amet et ipsa."], ["category_id", 4], ["created_at", "2017-10-07 15:36:00.865709"], ["updated_at", "2017-10-07 15:36:00.865709"]]
+  [1m[35m (108.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "maroon"], ["establishment_id", 4], ["created_at", "2017-10-07 15:36:00.976644"], ["updated_at", "2017-10-07 15:36:00.976644"]]
+  [1m[36m (86.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Caesar Salad"], ["price", 14.0], ["description", "Qui quis repudiandae sint ut."], ["category_id", 5], ["created_at", "2017-10-07 15:36:01.065622"], ["updated_at", "2017-10-07 15:36:01.065622"]]
+  [1m[35m (110.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Fettuccine Alfredo"], ["price", 45.0], ["description", "Odit est iste excepturi nihil aut exercitationem architecto autem."], ["category_id", 5], ["created_at", "2017-10-07 15:36:01.179551"], ["updated_at", "2017-10-07 15:36:01.179551"]]
+  [1m[36m (70.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Salmon nigiri"], ["price", 30.0], ["description", "Quis eum est provident."], ["category_id", 5], ["created_at", "2017-10-07 15:36:01.254200"], ["updated_at", "2017-10-07 15:36:01.254200"]]
+  [1m[35m (107.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Linguine with clams"], ["price", 29.0], ["description", "Est eum odit necessitatibus autem et repellendus."], ["category_id", 5], ["created_at", "2017-10-07 15:36:01.364888"], ["updated_at", "2017-10-07 15:36:01.364888"]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:37:03 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.6ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 182ms (Views: 174.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:44:37 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 82ms (Views: 79.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/establishments/2" for 127.0.0.1 at 2017-10-07 21:44:40 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?  [["establishment_id", 2]]
+  Rendered establishments/show.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 96ms (Views: 76.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:44:42 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 78ms (Views: 75.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:44:43 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mEstablishment Load (0.2ms)[0m  SELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?[0m  [["establishment_id", 3]]
+  [1m[35mDish Load (0.2ms)[0m  SELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?  [["category_id", 2]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (54.0ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    35: 								<%= form_for @line_item, remote: true do |f| %>
+    36: 									<%= f.hidden_field :title, value: dish.title %>
+    37: 									<%= f.hidden_field :price, value: dish.price %>
+    38: 									<%= f.hidden_field :cart_id, value: current_cart.id %>
+    39: 									<%= f.number_field :quantity, min: 1, value: 1 %>	
+    40: 									<%= f.submit "Добавить" %>						
+    41: 								<% end %>
+  app/views/establishments/show.html.erb:38:in `block (3 levels) in _app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+  app/views/establishments/show.html.erb:35:in `block (2 levels) in _app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+  app/views/establishments/show.html.erb:29:in `block in _app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+  app/views/establishments/show.html.erb:20:in `_app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (44.0ms)
+
+
+Started GET "/establishments/4" for 127.0.0.1 at 2017-10-07 21:44:56 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?[0m  [["establishment_id", 4]]
+  [1m[35mDish Load (0.3ms)[0m  SELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?  [["category_id", 5]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (13.9ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    35: 								<%= form_for @line_item, remote: true do |f| %>
+    36: 									<%= f.hidden_field :title, value: dish.title %>
+    37: 									<%= f.hidden_field :price, value: dish.price %>
+    38: 									<%= f.hidden_field :cart_id, value: current_cart.id %>
+    39: 									<%= f.number_field :quantity, min: 1, value: 1 %>	
+    40: 									<%= f.submit "Добавить" %>						
+    41: 								<% end %>
+  app/views/establishments/show.html.erb:38:in `block (3 levels) in _app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+  app/views/establishments/show.html.erb:35:in `block (2 levels) in _app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+  app/views/establishments/show.html.erb:29:in `block in _app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+  app/views/establishments/show.html.erb:20:in `_app_views_establishments_show_html_erb___1269242261435864886_70112194390100'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (46.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:44:57 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 105ms (Views: 102.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (103.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (98.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEstablishments (20170825133328)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "establishments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170825133328"]]
+  [1m[35m (92.4ms)[0m  commit transaction
+Migrating to CreateDishes (20170825133556)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "price" decimal, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_dishes_on_category_id" ON "dishes" ("category_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170825133556"]]
+  [1m[36m (82.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCarts (20170828141041)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170828141041"]]
+  [1m[36m (107.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLineItems (20170828141635)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "price" decimal, "quantity" integer, "cart_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_line_items_on_cart_id" ON "line_items" ("cart_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170828141635"]]
+  [1m[35m (104.9ms)[0m  commit transaction
+Migrating to CreateCategories (20170829074359)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "establishment_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_categories_on_establishment_id" ON "categories" ("establishment_id")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170829074359"]]
+  [1m[36m (86.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddAttachmentImageToEstablishments (20171006134611)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_name" varchar[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "establishments" ADD "image_content_type" varchar
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_size" integer[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "establishments" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171006134611"]]
+  [1m[35m (127.1ms)[0m  commit transaction
+Migrating to CreateUsers (20171007141144)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171007141144"]]
+  [1m[35m (128.9ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20171007141657)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20171007141657"]]
+  [1m[36m (105.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "carts" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2017-10-07 15:45:51.403795"], ["updated_at", "2017-10-07 15:45:51.403795"]]
+  [1m[35m (124.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Andrew"], ["email", "admin@admin.ru"], ["encrypted_password", "$2a$11$vy03DxUJp2QJYRSOEgPSue6PQb.jgxtLFZF/SifrN1HU1.vF1wCtC"], ["admin", "t"], ["created_at", "2017-10-07 15:45:51.739702"], ["updated_at", "2017-10-07 15:45:51.739702"]]
+  [1m[35m (80.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user@user.ru' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (126.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (98.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEstablishments (20170825133328)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "establishments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170825133328"]]
+  [1m[35m (100.7ms)[0m  commit transaction
+Migrating to CreateDishes (20170825133556)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "price" decimal, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_dishes_on_category_id" ON "dishes" ("category_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170825133556"]]
+  [1m[36m (105.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCarts (20170828141041)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170828141041"]]
+  [1m[36m (95.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLineItems (20170828141635)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "price" decimal, "quantity" integer, "cart_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_line_items_on_cart_id" ON "line_items" ("cart_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170828141635"]]
+  [1m[35m (94.0ms)[0m  commit transaction
+Migrating to CreateCategories (20170829074359)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "establishment_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_categories_on_establishment_id" ON "categories" ("establishment_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170829074359"]]
+  [1m[36m (94.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddAttachmentImageToEstablishments (20171006134611)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "establishments" ADD "image_content_type" varchar
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "establishments" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171006134611"]]
+  [1m[35m (95.7ms)[0m  commit transaction
+Migrating to CreateUsers (20171007141144)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171007141144"]]
+  [1m[35m (76.3ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20171007141657)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20171007141657"]]
+  [1m[36m (131.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "carts" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2017-10-07 15:46:18.431231"], ["updated_at", "2017-10-07 15:46:18.431231"]]
+  [1m[35m (84.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "Andrew"], ["email", "admin@admin.ru"], ["encrypted_password", "$2a$11$UHhKhLxB0e9OkLRBEgQyFeXSfw2/Cm3KVE2uqYYOI5mLBOgolC4q."], ["admin", "t"], ["created_at", "2017-10-07 15:46:18.728084"], ["updated_at", "2017-10-07 15:46:18.728084"]]
+  [1m[35m (84.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'user@user.ru' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "User"], ["email", "user@user.ru"], ["encrypted_password", "$2a$11$QzYx6s8TrfM1hI0Jg9EISunHLnSHsUmVv354//diy07DjexOgjkaO"], ["created_at", "2017-10-07 15:46:18.998228"], ["updated_at", "2017-10-07 15:46:18.998228"]]
+  [1m[35m (81.0ms)[0m  commit transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-c4khq6.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-mmigk7.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-mmigk7.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-mmigk7.png[0]' -auto-orient -resize "300x300>" '/tmp/a3c86f7b3d8eefcd11f482ce7b59eee620171007-15903-1ju15nl'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-gyvyj8.png'
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Yundt LLC"], ["description", "Reprehenderit aut ut dolore quia eos eligendi dolorem."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:46:19.758100"], ["created_at", "2017-10-07 15:46:19.830675"], ["updated_at", "2017-10-07 15:46:19.830675"]]
+  [1m[36m (106.9ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-f38woj.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-pb3m8y.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-pb3m8y.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-pb3m8y.png[0]' -auto-orient -resize "300x300>" '/tmp/2398454fc9dfcd56e71d8c54a2dba8d620171007-15903-14mj5ii'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-mzfldv.png'
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Botsford Inc"], ["description", "Iste et corrupti odit quaerat in qui."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:46:19.947908"], ["created_at", "2017-10-07 15:46:20.014331"], ["updated_at", "2017-10-07 15:46:20.014331"]]
+  [1m[35m (67.7ms)[0m  commit transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-1ajighg.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-10e22vz.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-10e22vz.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-10e22vz.png[0]' -auto-orient -resize "300x300>" '/tmp/8b6601089cb31067596e6c1fc1baf0fc20171007-15903-961vl8'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-148dmek.png'
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Schumm and Sons"], ["description", "Cupiditate voluptas ratione et blanditiis repellendus ut laborum consequatur."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:46:20.092195"], ["created_at", "2017-10-07 15:46:20.160723"], ["updated_at", "2017-10-07 15:46:20.160723"]]
+  [1m[36m (66.7ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-42mjwl.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-tw977k.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-tw977k.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-tw977k.png[0]' -auto-orient -resize "300x300>" '/tmp/73d6705ea172c253dbafa17e86b5177b20171007-15903-ac5cj8'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-1rkvvd7.png'
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Homenick, Crooks and McClure"], ["description", "Molestiae dolores officia sed voluptatum aliquid harum."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:46:20.236194"], ["created_at", "2017-10-07 15:46:20.304560"], ["updated_at", "2017-10-07 15:46:20.304560"]]
+  [1m[35m (89.7ms)[0m  commit transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-1yn9hop.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-igrp9c.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-igrp9c.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-igrp9c.png[0]' -auto-orient -resize "300x300>" '/tmp/e61e0f83b005b5947cd2f1034b1b86cc20171007-15903-1agwcfq'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-15903-10n0j24.png'
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Bins-Kuhlman"], ["description", "Voluptatem ea ut qui unde laboriosam et at velit."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 15:46:20.402634"], ["created_at", "2017-10-07 15:46:20.470020"], ["updated_at", "2017-10-07 15:46:20.470020"]]
+  [1m[36m (77.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "indigo"], ["establishment_id", 1], ["created_at", "2017-10-07 15:46:20.567333"], ["updated_at", "2017-10-07 15:46:20.567333"]]
+  [1m[35m (108.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Caesar Salad"], ["price", 16.0], ["description", "Sapiente quo voluptate ad nobis sequi."], ["category_id", 1], ["created_at", "2017-10-07 15:46:20.686934"], ["updated_at", "2017-10-07 15:46:20.686934"]]
+  [1m[36m (78.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pappardelle alla Bolognese"], ["price", 44.0], ["description", "Et laborum repellat veritatis et."], ["category_id", 1], ["created_at", "2017-10-07 15:46:20.768311"], ["updated_at", "2017-10-07 15:46:20.768311"]]
+  [1m[35m (73.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Mushroom Risotto"], ["price", 35.0], ["description", "Repudiandae eum et hic."], ["category_id", 1], ["created_at", "2017-10-07 15:46:20.846068"], ["updated_at", "2017-10-07 15:46:20.846068"]]
+  [1m[36m (85.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fish and chips"], ["price", 50.0], ["description", "Repellendus ut minima non illo molestias."], ["category_id", 1], ["created_at", "2017-10-07 15:46:20.934310"], ["updated_at", "2017-10-07 15:46:20.934310"]]
+  [1m[35m (167.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "maroon"], ["establishment_id", 1], ["created_at", "2017-10-07 15:46:21.104075"], ["updated_at", "2017-10-07 15:46:21.104075"]]
+  [1m[36m (138.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Meatballs with sauce"], ["price", 40.0], ["description", "Similique ut voluptatem aut vero architecto."], ["category_id", 2], ["created_at", "2017-10-07 15:46:21.245261"], ["updated_at", "2017-10-07 15:46:21.245261"]]
+  [1m[35m (62.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Tuna sashimi"], ["price", 21.0], ["description", "Delectus ipsa et suscipit quidem et fugiat ducimus."], ["category_id", 2], ["created_at", "2017-10-07 15:46:21.311482"], ["updated_at", "2017-10-07 15:46:21.311482"]]
+  [1m[36m (64.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "California maki"], ["price", 11.0], ["description", "Suscipit sunt vitae qui et qui illo similique."], ["category_id", 2], ["created_at", "2017-10-07 15:46:21.378235"], ["updated_at", "2017-10-07 15:46:21.378235"]]
+  [1m[35m (97.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Souvlaki"], ["price", 32.0], ["description", "Vero dolorem laudantium amet velit ut omnis qui."], ["category_id", 2], ["created_at", "2017-10-07 15:46:21.478100"], ["updated_at", "2017-10-07 15:46:21.478100"]]
+  [1m[36m (79.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "grey"], ["establishment_id", 4], ["created_at", "2017-10-07 15:46:21.560834"], ["updated_at", "2017-10-07 15:46:21.560834"]]
+  [1m[35m (75.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Fish and chips"], ["price", 37.0], ["description", "Asperiores laudantium iste quo amet voluptatem."], ["category_id", 3], ["created_at", "2017-10-07 15:46:21.639189"], ["updated_at", "2017-10-07 15:46:21.639189"]]
+  [1m[36m (134.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Souvlaki"], ["price", 18.0], ["description", "Consectetur iusto pariatur laborum."], ["category_id", 3], ["created_at", "2017-10-07 15:46:21.776786"], ["updated_at", "2017-10-07 15:46:21.776786"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Chicken Fajitas"], ["price", 25.0], ["description", "Libero suscipit recusandae animi et quos ut."], ["category_id", 3], ["created_at", "2017-10-07 15:46:21.866416"], ["updated_at", "2017-10-07 15:46:21.866416"]]
+  [1m[36m (63.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Salmon nigiri"], ["price", 31.0], ["description", "Magni aut et mollitia cupiditate autem in."], ["category_id", 3], ["created_at", "2017-10-07 15:46:21.933990"], ["updated_at", "2017-10-07 15:46:21.933990"]]
+  [1m[35m (60.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "lime"], ["establishment_id", 4], ["created_at", "2017-10-07 15:46:21.999270"], ["updated_at", "2017-10-07 15:46:21.999270"]]
+  [1m[36m (102.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Risotto with seafood"], ["price", 24.0], ["description", "Laboriosam qui totam amet."], ["category_id", 4], ["created_at", "2017-10-07 15:46:22.104984"], ["updated_at", "2017-10-07 15:46:22.104984"]]
+  [1m[35m (69.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Caesar Salad"], ["price", 17.0], ["description", "Porro placeat et sunt cupiditate."], ["category_id", 4], ["created_at", "2017-10-07 15:46:22.176780"], ["updated_at", "2017-10-07 15:46:22.176780"]]
+  [1m[36m (75.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Linguine with clams"], ["price", 40.0], ["description", "Ut exercitationem vero dolores voluptatum officia aut fuga sunt."], ["category_id", 4], ["created_at", "2017-10-07 15:46:22.254657"], ["updated_at", "2017-10-07 15:46:22.254657"]]
+  [1m[35m (85.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Mushroom Risotto"], ["price", 46.0], ["description", "Sit saepe similique nihil vero est quasi quis est."], ["category_id", 4], ["created_at", "2017-10-07 15:46:22.343664"], ["updated_at", "2017-10-07 15:46:22.343664"]]
+  [1m[36m (74.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "lavender"], ["establishment_id", 5], ["created_at", "2017-10-07 15:46:22.421091"], ["updated_at", "2017-10-07 15:46:22.421091"]]
+  [1m[35m (74.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Chicken milanese"], ["price", 30.0], ["description", "Ad cum laborum eum fugiat."], ["category_id", 5], ["created_at", "2017-10-07 15:46:22.498921"], ["updated_at", "2017-10-07 15:46:22.498921"]]
+  [1m[36m (104.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pork sausage roll"], ["price", 40.0], ["description", "Sint laborum illum quo ducimus voluptatem et saepe voluptatem."], ["category_id", 5], ["created_at", "2017-10-07 15:46:22.606316"], ["updated_at", "2017-10-07 15:46:22.606316"]]
+  [1m[35m (67.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Pork belly buns"], ["price", 11.0], ["description", "Ducimus distinctio in voluptas velit voluptates."], ["category_id", 5], ["created_at", "2017-10-07 15:46:22.676235"], ["updated_at", "2017-10-07 15:46:22.676235"]]
+  [1m[36m (63.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Caesar Salad"], ["price", 11.0], ["description", "Aut eaque dolore officia numquam optio molestiae adipisci."], ["category_id", 5], ["created_at", "2017-10-07 15:46:22.742766"], ["updated_at", "2017-10-07 15:46:22.742766"]]
+  [1m[35m (96.3ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:46:25 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (1.2ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 96ms (Views: 88.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/establishments/1" for 127.0.0.1 at 2017-10-07 21:46:27 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?[0m  [["establishment_id", 1]]
+  [1m[35mDish Load (0.4ms)[0m  SELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?  [["category_id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mDish Load (0.1ms)[0m  [1mSELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?[0m  [["category_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 141ms (Views: 117.3ms | ActiveRecord: 3.2ms)
