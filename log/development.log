@@ -32594,3 +32594,633 @@ Processing by EstablishmentsController#index as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
   Rendered line_items/_line_item.html.erb (3.4ms)
 Completed 200 OK in 116ms (Views: 113.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-06 19:29:11 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (10.0ms)
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (67.3ms)
+Completed 200 OK in 814ms (Views: 772.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (3.4ms)
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (3.3ms)
+Completed 200 OK in 66ms (Views: 62.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/dishes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/establishments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/line_items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/carts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/application.self-3f4ed11c3dce395fcc92b4ab39521af1966f72f463fef568acc7ccca5681e0be.css?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/carts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/establishments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/dishes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/line_items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-10-06 19:29:13 +0600
+
+
+Started GET "/establishments/7" for 127.0.0.1 at 2017-10-06 19:29:22 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?[0m  [["establishment_id", 7]]
+  [1m[35mDish Load (0.2ms)[0m  SELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?  [["category_id", 9]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mDish Load (0.2ms)[0m  SELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?  [["category_id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  Rendered establishments/show.html.erb within layouts/application (112.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (4.3ms)
+Completed 200 OK in 249ms (Views: 176.5ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/line_items" for 127.0.0.1 at 2017-10-06 19:29:25 +0600
+Processing by LineItemsController#create as JS
+  Parameters: {"utf8"=>"✓", "line_item"=>{"title"=>"Coca-cola", "price"=>"70.0", "cart_id"=>"9", "quantity"=>"1"}, "commit"=>"Добавить"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_items" ("title", "quantity", "price", "cart_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Coca-cola"], ["quantity", 1], ["price", 70.0], ["cart_id", 9], ["created_at", "2017-10-06 13:29:25.145843"], ["updated_at", "2017-10-06 13:29:25.145843"]]
+  [1m[36m (66.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered carts/_cart.html.erb (1.9ms)
+  Rendered line_items/_line_item.html.erb (11.7ms)
+  Rendered line_items/create.js.erb (13.7ms)
+Completed 200 OK in 91ms (Views: 18.1ms | ActiveRecord: 68.1ms)
+
+
+Started DELETE "/line_items/29" for 127.0.0.1 at 2017-10-06 19:29:27 +0600
+Processing by LineItemsController#destroy as JS
+  Parameters: {"id"=>"29"}
+  [1m[35mLineItem Load (0.3ms)[0m  SELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = ? LIMIT 1  [["id", 29]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "line_items" WHERE "line_items"."id" = ?  [["id", 29]]
+  [1m[36m (88.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (4.3ms)
+  Rendered line_items/destroy.js.erb (5.9ms)
+Completed 200 OK in 102ms (Views: 7.7ms | ActiveRecord: 89.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-06 19:30:00 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (3.5ms)
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (3.5ms)
+Completed 200 OK in 90ms (Views: 86.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-06 19:30:00 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (3.0ms)
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (4.4ms)
+Completed 200 OK in 92ms (Views: 89.1ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveImageFromEstablishments (20171006133547)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveImageFromEstablishments (20171006133547)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "aestablishments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "establishments"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aestablishments" ("id","title","description","image","created_at","updated_at") VALUES (6, 'Golden Dragon', 'Ресторан Золотой дракон приглашает оценить обновленное убранство залов и восхитительный вкус новых и хорошо знакомых кушаний корейской и европейской кухни. Он расположен на территории отеля в отдельно стоящем здании и открыт с 10-00 утра до 12-00 часов ночи.', NULL, '2017-08-29 07:56:34.299227', '2017-08-29 07:56:34.299227')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aestablishments" ("id","title","description","image","created_at","updated_at") VALUES (7, 'Ninja Sushi', 'Компания Ninja Shop выполнит весть спектр услуг по доставке готовой еды на дом, в офис или в любое удобное для вас место. Быстро и качественно доставляем суши, пиццу в Томске, горячие обеды, салаты, закуски, напитки, различные десерты и многое другое. Готовим гриль блюда различной сложности. ', NULL, '2017-08-29 07:56:34.389356', '2017-08-29 07:56:34.389356')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aestablishments" ("id","title","description","image","created_at","updated_at") VALUES (8, 'Коффейня Coffee', '…Летом, когда день не торопится завершиться, и зимой, когда за окном уже сумерки, приятно посидеть за чашечкой кофе. Впрочем, чашечка кофе не только пункт в меню, это повод для встречи, приятный ритуал, который в разное время суток может иметь различное дополнение. Утром – кофе с молоком плюс яблочный пирог – быстрый завтрак. Днем – ароматный эспрессо с чизкейком - приятная передышка. Вечером…
+А вот вечером возможны варианты. И ради чашечки вечернего кофе лучше отправиться в кофейню.
+Первая кофейня «Coffee» гостеприимно распахнула свои двери в марте 2006 года и положила начало созданию кофейной культуры в Киргизии. Кофейня «Coffee» - место, где не только подают кофе, но и создают уютную атмосферу общения для самой широкой аудитории. Спешит ли наш гость, и может провести в кофейне всего несколько минут, или, человеку захотелось обдумать какие-то идеи, провести деловую встречу, а может побыть наедине с собой, атмосфера кофейни располагает к тому, чтобы все они чувствовали себя как дома…', NULL, '2017-08-29 07:56:34.467044', '2017-08-29 07:57:38.603339')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aestablishments" ("id","title","description","image","created_at","updated_at") VALUES (9, 'Циклон', 'Ресторан «Циклон» был открыт, чтоб донести давнюю итальянскую традицию до жителей и гостей города Бишкек.
+Итальянский ресторан существует в центре города уже 20 лет и за это время успел обзавестись множеством постоянных гостей. А недавно, к большой их радости, в заведении обновился интерьер. Общая демократичность обстановки, свойственная итальянским ресторанчикам, не могла не сказаться и на меню «Циклона». В нем можно увидеть более двадцати видов пасты и вкусную пиццу во всем ее разнообразии, ризотто и домашние равиоли, классические итальянские блюда и интересные фирменные предложения от шеф-повара, которые по достоинству оценили даже гурманы из самой Италии.
+«Циклон» — это место, где можно ощутить итальянское гостеприимство, дружеские отношения с персоналом и конечно же попробовать традиционную итальянскую кухню', NULL, '2017-08-29 07:56:34.555902', '2017-08-29 07:57:45.616773')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "establishments"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "establishments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aestablishments"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "establishments" ("id","title","description","created_at","updated_at") VALUES (6, 'Golden Dragon', 'Ресторан Золотой дракон приглашает оценить обновленное убранство залов и восхитительный вкус новых и хорошо знакомых кушаний корейской и европейской кухни. Он расположен на территории отеля в отдельно стоящем здании и открыт с 10-00 утра до 12-00 часов ночи.', '2017-08-29 07:56:34.299227', '2017-08-29 07:56:34.299227')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "establishments" ("id","title","description","created_at","updated_at") VALUES (7, 'Ninja Sushi', 'Компания Ninja Shop выполнит весть спектр услуг по доставке готовой еды на дом, в офис или в любое удобное для вас место. Быстро и качественно доставляем суши, пиццу в Томске, горячие обеды, салаты, закуски, напитки, различные десерты и многое другое. Готовим гриль блюда различной сложности. ', '2017-08-29 07:56:34.389356', '2017-08-29 07:56:34.389356')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "establishments" ("id","title","description","created_at","updated_at") VALUES (8, 'Коффейня Coffee', '…Летом, когда день не торопится завершиться, и зимой, когда за окном уже сумерки, приятно посидеть за чашечкой кофе. Впрочем, чашечка кофе не только пункт в меню, это повод для встречи, приятный ритуал, который в разное время суток может иметь различное дополнение. Утром – кофе с молоком плюс яблочный пирог – быстрый завтрак. Днем – ароматный эспрессо с чизкейком - приятная передышка. Вечером…
+А вот вечером возможны варианты. И ради чашечки вечернего кофе лучше отправиться в кофейню.
+Первая кофейня «Coffee» гостеприимно распахнула свои двери в марте 2006 года и положила начало созданию кофейной культуры в Киргизии. Кофейня «Coffee» - место, где не только подают кофе, но и создают уютную атмосферу общения для самой широкой аудитории. Спешит ли наш гость, и может провести в кофейне всего несколько минут, или, человеку захотелось обдумать какие-то идеи, провести деловую встречу, а может побыть наедине с собой, атмосфера кофейни располагает к тому, чтобы все они чувствовали себя как дома…', '2017-08-29 07:56:34.467044', '2017-08-29 07:57:38.603339')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "establishments" ("id","title","description","created_at","updated_at") VALUES (9, 'Циклон', 'Ресторан «Циклон» был открыт, чтоб донести давнюю итальянскую традицию до жителей и гостей города Бишкек.
+Итальянский ресторан существует в центре города уже 20 лет и за это время успел обзавестись множеством постоянных гостей. А недавно, к большой их радости, в заведении обновился интерьер. Общая демократичность обстановки, свойственная итальянским ресторанчикам, не могла не сказаться и на меню «Циклона». В нем можно увидеть более двадцати видов пасты и вкусную пиццу во всем ее разнообразии, ризотто и домашние равиоли, классические итальянские блюда и интересные фирменные предложения от шеф-повара, которые по достоинству оценили даже гурманы из самой Италии.
+«Циклон» — это место, где можно ощутить итальянское гостеприимство, дружеские отношения с персоналом и конечно же попробовать традиционную итальянскую кухню', '2017-08-29 07:56:34.555902', '2017-08-29 07:57:45.616773')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "aestablishments"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171006133547"]]
+  [1m[35m (81.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentImageToEstablishments (20171006134611)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_name" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "establishments" ADD "image_content_type" varchar
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "establishments" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171006134611"]]
+  [1m[35m (251.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-06 20:06:03 +0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by EstablishmentsController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.6ms)
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fd07a310388>):
+  app/models/establishment.rb:4:in `<class:Establishment>'
+  app/models/establishment.rb:1:in `<top (required)>'
+  app/controllers/establishments_controller.rb:3:in `index'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (73.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (115.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-06 20:07:13 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (12.5ms)
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (65.2ms)
+Completed 200 OK in 483ms (Views: 464.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-06 20:08:25 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (2.7ms)
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (4.8ms)
+Completed 200 OK in 118ms (Views: 115.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:46:42 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (20.0ms)
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (130.3ms)
+Completed 200 OK in 1078ms (Views: 1015.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:46:44 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (3.2ms)
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (4.3ms)
+Completed 200 OK in 109ms (Views: 105.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/establishments" for 127.0.0.1 at 2017-10-07 19:46:52 +0600
+Processing by Admin::EstablishmentsController#index as HTML
+Filter chain halted as #<Proc:0x007fd90042a348@/home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:50:27 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.6ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (22.9ms)
+  Rendered line_items/_line_item.html.erb (53.3ms)
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined local variable or method `admin_establishments_path' for #<#<Class:0x007fd8e8246698>:0x007fd8e82568b8>):
+    1: <ul class="nav navbar-nav navbar-right" id="cart">
+    2:   <a class="navbar-brand" href="<%= admin_establishments_path %>">Админка</a>
+    3: 	<li class="dropdown">
+    4: 	  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    5: 	  	Корзина 
+  app/views/line_items/_line_item.html.erb:2:in `_app_views_line_items__line_item_html_erb__1434730120916233112_47167844501320'
+  app/views/layouts/application.html.erb:27:in `_app_views_layouts_application_html_erb__2804146689795689762_47167847341080'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (121.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (158.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:50:51 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (2.8ms)
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (15.6ms)
+Completed 200 OK in 78ms (Views: 74.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/establishments" for 127.0.0.1 at 2017-10-07 19:51:26 +0600
+
+ActionController::RoutingError (No route matches [GET] "/admin/establishments"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (88.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (256.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (20.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:51:30 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (2.1ms)
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (3.4ms)
+Completed 200 OK in 66ms (Views: 64.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:55:35 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (5.9ms)
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (23.1ms)
+Completed 200 OK in 114ms (Views: 111.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2017-10-07 19:55:35 +0600
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (73.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:56:56 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (3.3ms)
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (3.8ms)
+Completed 200 OK in 67ms (Views: 64.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2017-10-07 19:56:56 +0600
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (64.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (29.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (58.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 19:58:18 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.7ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (11.2ms)
+  [1m[35mCart Load (0.1ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (13.3ms)
+Completed 200 OK in 115ms (Views: 107.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2017-10-07 19:58:18 +0600
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (74.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (34.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (65.1ms)

@@ -2,7 +2,7 @@
 <div class="row">
 	<% @establishments.each do |establishment| %>
 		<div class="col-md-4" align="center">
-			<%= image_tag("/uploads/establishments/#{establishment.id}", size: '300') %><br>
+			<%= image_tag establishment.image.url(:medium) %><br>
 			<h4><%= link_to establishment.title, establishment_path(establishment) %></h4> 
 			<%= truncate(establishment.description, length: 100) %>
 		</div>

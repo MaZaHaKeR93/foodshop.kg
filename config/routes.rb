@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :carts
   resources :line_items
 
-  namespace :admin do
-    resources :categories
-    resources :establishments
-    resources :dishes
-  end
+  # namespace :admin do
+  #   resources :categories
+  #   resources :establishments
+  #   resources :dishes
+  # end
 end
