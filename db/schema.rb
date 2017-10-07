@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006134611) do
+ActiveRecord::Schema.define(version: 20171007141657) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20171006134611) do
     t.string   "title"
     t.text     "description"
     t.decimal  "price"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "category_id"
   end
 
   add_index "dishes", ["category_id"], name: "index_dishes_on_category_id"
@@ -59,5 +59,17 @@ ActiveRecord::Schema.define(version: 20171006134611) do
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.boolean  "admin"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "email",               default: "", null: false
+    t.string   "encrypted_password",  default: "", null: false
+    t.datetime "remember_created_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

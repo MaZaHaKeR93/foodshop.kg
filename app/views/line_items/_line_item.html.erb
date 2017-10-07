@@ -1,44 +1,42 @@
-<ul class="nav navbar-nav navbar-right" id="cart">
-	<li class="dropdown">
-	  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	  	Корзина 
-	  	<span class="badge"><%= current_cart.line_items.count %></span>
-	  	<span class="caret"></span>
-	  </a>
-	  <% if current_cart.line_items.count == 0 then %>
-	    <ol class="dropdown-menu">
-	      <li><b>Ваша корзина пуста!</b></li>
-	  	</ol>
-	  <% else %>
-			<ol class="dropdown-menu">
-	      <table class="table">
-	        <tr>
-	        	<th>Название</th>
-	        	<th>Цена</th>
-	         	<th>Количество</th>
-	         	<th>Сумма</th>
-	         	<th colspan="2">Действия</th>
-	        </tr>
-	        <% current_cart.line_items.each do |line_item| %>
-	        	<tr id="comment_<%= line_item.id %>">
-	          	<td><%= line_item.title %></td>
-	          	<td><%= line_item.price %></td>
-	          	<td><%= line_item.quantity %></td>
-	          	<td><%= line_item.pre_total_price %> сом</td>
-	          	<td><%= link_to 'Удалить', line_item, method: :delete, remote: true %></td>
-	        	</tr>
-	      	<% end %>
-	      	<tr>
-	      		<td colspan="3"><b>Общая сумма: <%= render 'carts/cart' %></b></td>
-	      		<td colspan="2"><%= link_to 'Очистить корзину', line_items_destroy_all_path, remote: true, method: :delete %></td>
-	      	</tr>
-	      	<tr>
-	      		<td colspan="4" align="center">
-	      			<%= link_to 'Оформить заказ', carts_path, method: :post %>
-	      		</td>
-	      	</tr>
-	    	</table>
-	    </ol>
-	  <% end %>
-	</li>
-</ul>
+<li class="dropdown">
+  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+  	Корзина 
+  	<span class="badge"><%= current_cart.line_items.count %></span>
+  	<span class="caret"></span>
+  </a>
+  <% if current_cart.line_items.count == 0 then %>
+    <ol class="dropdown-menu">
+      <li><b>Ваша корзина пуста!</b></li>
+  	</ol>
+  <% else %>
+		<ol class="dropdown-menu">
+      <table class="table">
+        <tr>
+        	<th>Название</th>
+        	<th>Цена</th>
+         	<th>Количество</th>
+         	<th>Сумма</th>
+         	<th colspan="2">Действия</th>
+        </tr>
+        <% current_cart.line_items.each do |line_item| %>
+        	<tr id="comment_<%= line_item.id %>">
+          	<td><%= line_item.title %></td>
+          	<td><%= line_item.price %></td>
+          	<td><%= line_item.quantity %></td>
+          	<td><%= line_item.pre_total_price %> сом</td>
+          	<td><%= link_to 'Удалить', line_item, method: :delete, remote: true %></td>
+        	</tr>
+      	<% end %>
+      	<tr>
+      		<td colspan="3"><b>Общая сумма: <%= render 'carts/cart' %></b></td>
+      		<td colspan="2"><%= link_to 'Очистить корзину', line_items_destroy_all_path, remote: true, method: :delete %></td>
+      	</tr>
+      	<tr>
+      		<td colspan="4" align="center">
+      			<%= link_to 'Оформить заказ', carts_path, method: :post %>
+      		</td>
+      	</tr>
+    	</table>
+    </ol>
+  <% end %>
+</li>

@@ -3,7 +3,6 @@ class CreateEstablishments < ActiveRecord::Migration
     create_table :establishments do |t|
       t.string :title
       t.text :description
-      t.string :image
 
       t.timestamps null: false
     end

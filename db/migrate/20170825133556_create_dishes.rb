@@ -4,8 +4,7 @@ class CreateDishes < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.decimal :price
-      t.references :establishment, index: true, foreign_key: true
-
+      t.references :category, index: true, foreign_key: true
       t.timestamps null: false
     end
   end

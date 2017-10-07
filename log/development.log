@@ -33224,3 +33224,1361 @@ ActionController::RoutingError (No route matches [GET] "/images/medium/missing.p
   Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
   Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (65.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20171007141144)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20171007141144"]]
+  [1m[36m (85.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDeviseToUsers (20171007141657)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "reset_password_sent_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0 NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "current_sign_in_at" datetime[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "last_sign_in_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "current_sign_in_ip" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "last_sign_in_ip" varchar
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171007141657"]]
+  [1m[35m (86.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:19:27 +0600
+
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0x007fd8e81144f0>):
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (30.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (46.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:19:38 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (15.9ms)
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 9]]
+  Rendered line_items/_line_item.html.erb (36.2ms)
+Completed 200 OK in 506ms (Views: 485.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2017-10-07 20:19:39 +0600
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (94.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (56.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (83.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:23:26 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 72ms (Views: 69.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2017-10-07 20:23:26 +0600
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (86.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (41.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (81.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-10-07 20:24:13 +0600
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/devise-4.3.0/app/views/devise/shared/_links.html.erb (2.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/devise-4.3.0/app/views/devise/registrations/new.html.erb within layouts/application (47.3ms)
+Completed 200 OK in 179ms (Views: 160.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2017-10-07 20:24:13 +0600
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (60.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (50.2ms)
+
+
+Started GET "/images/medium/missing.png" for 127.0.0.1 at 2017-10-07 20:24:16 +0600
+
+ActionController::RoutingError (No route matches [GET] "/images/medium/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (62.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (56.7ms)
+  [1m[36m (112.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (99.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEstablishments (20170825133328)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "establishments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170825133328"]]
+  [1m[35m (79.4ms)[0m  commit transaction
+Migrating to CreateDishes (20170825133556)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "price" decimal, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_dishes_on_category_id" ON "dishes" ("category_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170825133556"]]
+  [1m[36m (94.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCarts (20170828141041)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170828141041"]]
+  [1m[36m (106.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLineItems (20170828141635)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "price" decimal, "quantity" integer, "cart_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_line_items_on_cart_id" ON "line_items" ("cart_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170828141635"]]
+  [1m[35m (105.3ms)[0m  commit transaction
+Migrating to CreateCategories (20170829074359)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "establishment_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_categories_on_establishment_id" ON "categories" ("establishment_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170829074359"]]
+  [1m[36m (94.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddAttachmentImageToEstablishments (20171006134611)
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_name" varchar[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "establishments" ADD "image_content_type" varchar
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_size" integer[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "establishments" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171006134611"]]
+  [1m[35m (81.9ms)[0m  commit transaction
+Migrating to CreateUsers (20171007141144)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171007141144"]]
+  [1m[35m (107.3ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20171007141657)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171007141657"]]
+  [1m[35m (87.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:52:34 +0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.2ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined method `rememberable_options' for #<Class:0x007f21a21e5f80>):
+    23:     <!-- Collect the nav links, forms, and other content for toggling -->
+    24:     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    25:       <ul class="nav navbar-nav navbar-right">
+    26:         <% if user_signed_in? %>
+    27:           <%= link_to "Profile", profile_path(current_user.username), class: 'btn btn-default navbar-btn' %>
+    28:           <p class="navbar-text">
+    29:             Hello, <%= link_to current_user.username,  edit_user_registration_path, class: 'navbar-link' %>
+  app/views/layouts/application.html.erb:26:in `_app_views_layouts_application_html_erb___1668523968296299551_47048941475740'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (44.9ms)
+  [1m[36m (107.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (77.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateEstablishments (20170825133328)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "establishments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170825133328"]]
+  [1m[35m (112.7ms)[0m  commit transaction
+Migrating to CreateDishes (20170825133556)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "price" decimal, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_dishes_on_category_id" ON "dishes" ("category_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170825133556"]]
+  [1m[36m (83.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCarts (20170828141041)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170828141041"]]
+  [1m[36m (95.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLineItems (20170828141635)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "price" decimal, "quantity" integer, "cart_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_line_items_on_cart_id" ON "line_items" ("cart_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170828141635"]]
+  [1m[35m (85.8ms)[0m  commit transaction
+Migrating to CreateCategories (20170829074359)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "establishment_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_categories_on_establishment_id" ON "categories" ("establishment_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170829074359"]]
+  [1m[36m (117.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddAttachmentImageToEstablishments (20171006134611)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_name" varchar[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "establishments" ADD "image_content_type" varchar
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "establishments" ADD "image_file_size" integer[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "establishments" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171006134611"]]
+  [1m[35m (105.4ms)[0m  commit transaction
+Migrating to CreateUsers (20171007141144)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171007141144"]]
+  [1m[35m (84.3ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20171007141657)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "remember_created_at" datetime
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20171007141657"]]
+  [1m[36m (114.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_categories_on_establishment_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_dishes_on_category_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_line_items_on_cart_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:53:20 +0600
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 1.1ms)
+
+ActionView::Template::Error (undefined method `rememberable_options' for #<Class:0x007f21a298d120>):
+    23:     <!-- Collect the nav links, forms, and other content for toggling -->
+    24:     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    25:       <ul class="nav navbar-nav navbar-right">
+    26:         <% if user_signed_in? %>
+    27:           <%= link_to "Profile", profile_path(current_user.username), class: 'btn btn-default navbar-btn' %>
+    28:           <p class="navbar-text">
+    29:             Hello, <%= link_to current_user.username,  edit_user_registration_path, class: 'navbar-link' %>
+  app/views/layouts/application.html.erb:26:in `_app_views_layouts_application_html_erb___1668523968296299551_47048941475740'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (25.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (51.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:53:36 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 557ms (Views: 533.1ms | ActiveRecord: 0.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-faqxlb.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1ovqics.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1ovqics.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1ovqics.png[0]' -auto-orient -resize "300x300>" '/tmp/1956456a0b946c3d3e00c51c6484ed5020171007-13537-1fqg8lt'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1cs7fc3.png'
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Kertzmann Group"], ["description", "Numquam dignissimos distinctio enim."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 14:55:43.852894"], ["created_at", "2017-10-07 14:55:44.032880"], ["updated_at", "2017-10-07 14:55:44.032880"]]
+  [1m[35m (92.7ms)[0m  commit transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1bbc80p.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-6u41wy.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-6u41wy.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-6u41wy.png[0]' -auto-orient -resize "300x300>" '/tmp/e239907dcb73186194ab9b7bd1b7a17d20171007-13537-i6ye7e'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-awpugx.png'
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Waters-Bergnaum"], ["description", "Facere aut non ut."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 14:55:44.205631"], ["created_at", "2017-10-07 14:55:44.274625"], ["updated_at", "2017-10-07 14:55:44.274625"]]
+  [1m[36m (101.6ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-hjf4x3.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1mny8az.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1mny8az.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1mny8az.png[0]' -auto-orient -resize "300x300>" '/tmp/edf086e974cfe557b4367edb5eebe52620171007-13537-1da1nwp'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1e2kgjk.png'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Rolfson, Schowalter and Rippin"], ["description", "Sed recusandae ipsam pariatur."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 14:55:44.406296"], ["created_at", "2017-10-07 14:55:44.480059"], ["updated_at", "2017-10-07 14:55:44.480059"]]
+  [1m[35m (75.7ms)[0m  commit transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-ccduaf.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-7ky748.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-7ky748.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-7ky748.png[0]' -auto-orient -resize "300x300>" '/tmp/9cdebc6c381a4354affff49cd74f35e220171007-13537-15j1ttt'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-12mp39o.png'
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["title", "Hane, Boyle and Steuber"], ["description", "Qui aut expedita sit dicta maxime consequatur."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 14:55:44.571431"], ["created_at", "2017-10-07 14:55:44.638599"], ["updated_at", "2017-10-07 14:55:44.638599"]]
+  [1m[36m (108.6ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-6hfpqf.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-cp062r.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-cp062r.png[0]'
+Command :: convert '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-cp062r.png[0]' -auto-orient -resize "300x300>" '/tmp/f0df452f141e58dc2b5a8e43fb15ded120171007-13537-16ht5xn'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/c21f969b5f03d33d43e04f8f136e768220171007-13537-1nebrdd.png'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "establishments" ("title", "description", "image_file_name", "image_content_type", "image_file_size", "image_updated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Kuphal, Borer and Stanton"], ["description", "Quae quos incidunt voluptatem in quisquam corporis ea et."], ["image_file_name", "default.png"], ["image_content_type", "image/png"], ["image_file_size", 11378], ["image_updated_at", "2017-10-07 14:55:44.760037"], ["created_at", "2017-10-07 14:55:44.830603"], ["updated_at", "2017-10-07 14:55:44.830603"]]
+  [1m[35m (79.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "green"], ["establishment_id", 5], ["created_at", "2017-10-07 14:55:44.947113"], ["updated_at", "2017-10-07 14:55:44.947113"]]
+  [1m[36m (86.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tuna sashimi"], ["price", 16.0], ["description", "Consequatur consequatur delectus ab molestiae ut est quia."], ["category_id", 1], ["created_at", "2017-10-07 14:55:45.046684"], ["updated_at", "2017-10-07 14:55:45.046684"]]
+  [1m[35m (63.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Bruschette with Tomato"], ["price", 34.0], ["description", "Dolores quod iure voluptas reiciendis est."], ["category_id", 1], ["created_at", "2017-10-07 14:55:45.115071"], ["updated_at", "2017-10-07 14:55:45.115071"]]
+  [1m[36m (62.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pasta Carbonara"], ["price", 46.0], ["description", "Est architecto quis debitis."], ["category_id", 1], ["created_at", "2017-10-07 14:55:45.180979"], ["updated_at", "2017-10-07 14:55:45.180979"]]
+  [1m[35m (62.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Meatballs with sauce"], ["price", 47.0], ["description", "Sequi non consequatur nostrum totam autem omnis ut."], ["category_id", 1], ["created_at", "2017-10-07 14:55:45.248308"], ["updated_at", "2017-10-07 14:55:45.248308"]]
+  [1m[36m (83.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "lime"], ["establishment_id", 1], ["created_at", "2017-10-07 14:55:45.336246"], ["updated_at", "2017-10-07 14:55:45.336246"]]
+  [1m[35m (74.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Caesar Salad"], ["price", 21.0], ["description", "Ut adipisci inventore minus temporibus sint magnam aliquid."], ["category_id", 2], ["created_at", "2017-10-07 14:55:45.414114"], ["updated_at", "2017-10-07 14:55:45.414114"]]
+  [1m[36m (153.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Philadelphia maki"], ["price", 40.0], ["description", "Ipsa reprehenderit dicta corrupti omnis."], ["category_id", 2], ["created_at", "2017-10-07 14:55:45.570680"], ["updated_at", "2017-10-07 14:55:45.570680"]]
+  [1m[35m (117.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "California maki"], ["price", 12.0], ["description", "Dolores perferendis veniam et."], ["category_id", 2], ["created_at", "2017-10-07 14:55:45.691243"], ["updated_at", "2017-10-07 14:55:45.691243"]]
+  [1m[36m (74.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "French fries with sausages"], ["price", 28.0], ["description", "Qui asperiores voluptas sint doloribus delectus fugit corrupti quo."], ["category_id", 2], ["created_at", "2017-10-07 14:55:45.768825"], ["updated_at", "2017-10-07 14:55:45.768825"]]
+  [1m[35m (94.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "red"], ["establishment_id", 4], ["created_at", "2017-10-07 14:55:45.866820"], ["updated_at", "2017-10-07 14:55:45.866820"]]
+  [1m[36m (86.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Bruschette with Tomato"], ["price", 10.0], ["description", "Beatae libero a voluptatibus illo repellendus enim dolore."], ["category_id", 3], ["created_at", "2017-10-07 14:55:45.957494"], ["updated_at", "2017-10-07 14:55:45.957494"]]
+  [1m[35m (85.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "French fries with sausages"], ["price", 17.0], ["description", "Fugit voluptas dolor dolores molestias deserunt aliquam nesciunt."], ["category_id", 3], ["created_at", "2017-10-07 14:55:46.045537"], ["updated_at", "2017-10-07 14:55:46.045537"]]
+  [1m[36m (75.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Philadelphia maki"], ["price", 34.0], ["description", "Quo aspernatur dolorem quasi voluptatem in non."], ["category_id", 3], ["created_at", "2017-10-07 14:55:46.123848"], ["updated_at", "2017-10-07 14:55:46.123848"]]
+  [1m[35m (63.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Califlower penne"], ["price", 11.0], ["description", "Delectus vero voluptas velit numquam illum perferendis."], ["category_id", 3], ["created_at", "2017-10-07 14:55:46.189748"], ["updated_at", "2017-10-07 14:55:46.189748"]]
+  [1m[36m (86.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "yellow"], ["establishment_id", 3], ["created_at", "2017-10-07 14:55:46.279372"], ["updated_at", "2017-10-07 14:55:46.279372"]]
+  [1m[35m (72.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Caprese Salad"], ["price", 18.0], ["description", "Earum labore quis autem minus architecto id."], ["category_id", 4], ["created_at", "2017-10-07 14:55:46.356885"], ["updated_at", "2017-10-07 14:55:46.356885"]]
+  [1m[36m (63.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Pork sausage roll"], ["price", 47.0], ["description", "Molestias culpa ea sequi."], ["category_id", 4], ["created_at", "2017-10-07 14:55:46.423363"], ["updated_at", "2017-10-07 14:55:46.423363"]]
+  [1m[35m (85.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Tiramisù"], ["price", 30.0], ["description", "Explicabo vitae neque repudiandae hic qui quae."], ["category_id", 4], ["created_at", "2017-10-07 14:55:46.512097"], ["updated_at", "2017-10-07 14:55:46.512097"]]
+  [1m[36m (102.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Fish and chips"], ["price", 46.0], ["description", "Velit culpa non autem quod et magni blanditiis."], ["category_id", 4], ["created_at", "2017-10-07 14:55:46.618713"], ["updated_at", "2017-10-07 14:55:46.618713"]]
+  [1m[35m (78.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "categories" ("title", "establishment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "olive"], ["establishment_id", 1], ["created_at", "2017-10-07 14:55:46.700796"], ["updated_at", "2017-10-07 14:55:46.700796"]]
+  [1m[36m (107.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Chicken wings"], ["price", 48.0], ["description", "Ut sed id aspernatur neque nesciunt."], ["category_id", 5], ["created_at", "2017-10-07 14:55:46.811765"], ["updated_at", "2017-10-07 14:55:46.811765"]]
+  [1m[35m (74.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "French fries with sausages"], ["price", 10.0], ["description", "Sed eos consequuntur aut porro pariatur soluta sit dignissimos."], ["category_id", 5], ["created_at", "2017-10-07 14:55:46.889294"], ["updated_at", "2017-10-07 14:55:46.889294"]]
+  [1m[36m (75.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Barbecue Ribs"], ["price", 39.0], ["description", "Laborum ducimus natus et quod officia dolor aut."], ["category_id", 5], ["created_at", "2017-10-07 14:55:46.967024"], ["updated_at", "2017-10-07 14:55:46.967024"]]
+  [1m[35m (108.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "dishes" ("title", "price", "description", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Caprese Salad"], ["price", 24.0], ["description", "Nihil quae cupiditate et."], ["category_id", 5], ["created_at", "2017-10-07 14:55:47.077997"], ["updated_at", "2017-10-07 14:55:47.077997"]]
+  [1m[36m (63.8ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:55:49 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 85ms (Views: 82.9ms | ActiveRecord: 0.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@admin.ru' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["username", "Andrew"], ["email", "admin@admin.ru"], ["encrypted_password", "$2a$11$2mAZEzXHOdjhcrxN7y9jvOMF9SoPjUuD6.LHU9uW0fF2QtHWmWO1y"], ["created_at", "2017-10-07 14:58:34.527268"], ["updated_at", "2017-10-07 14:58:34.527268"]]
+  [1m[36m (81.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'user@user.ru' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["username", "User"], ["email", "user@user.ru"], ["encrypted_password", "$2a$11$j9.21FPDKqAJuFyPHDZd6uEZvkP0fXAuqtGHbkbHkFxW0MFZ17g5y"], ["created_at", "2017-10-07 14:58:34.794972"], ["updated_at", "2017-10-07 14:58:34.794972"]]
+  [1m[36m (81.2ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:58:40 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 65ms (Views: 63.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-07 20:58:42 +0600
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (208.8ms)
+Completed 200 OK in 347ms (Views: 319.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-10-07 20:58:52 +0600
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YtAX6i/wxESrFpfR70FPkDeWz7qU6VvQGHxFIrjtVb5tfIE16H6hWrLwlnEht3Xs5koBZJo44Vu8L0M8BJ+sUA==", "user"=>{"email"=>"admin@admin.ru", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin@admin.ru"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 295ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:58:52 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (undefined method `profile_path' for #<#<Class:0x0055de949c5720>:0x007fbc5de05b98>):
+    24:     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    25:       <ul class="nav navbar-nav navbar-right">
+    26:         <% if user_signed_in? %>
+    27:           <%= link_to "Profile", profile_path(current_user.username), class: 'btn btn-default navbar-btn' %>
+    28:           <p class="navbar-text">
+    29:             Hello, <%= link_to current_user.username,  edit_user_registration_path, class: 'navbar-link' %>
+    30:           </p>
+  app/views/layouts/application.html.erb:27:in `_app_views_layouts_application_html_erb___3183550993944887732_47207231946600'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (22.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (44.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 20:59:15 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (4.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  Rendered line_items/_line_item.html.erb (8.5ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined method `line_items' for nil:NilClass):
+    2: 	<li class="dropdown">
+    3: 	  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    4: 	  	Корзина 
+    5: 	  	<span class="badge"><%= current_cart.line_items.count %></span>
+    6: 	  	<span class="caret"></span>
+    7: 	  </a>
+    8: 	  <% if current_cart.line_items.count == 0 then %>
+  app/views/line_items/_line_item.html.erb:5:in `_app_views_line_items__line_item_html_erb__4493271540258332797_47207237237620'
+  app/views/layouts/application.html.erb:30:in `_app_views_layouts_application_html_erb___3183550993944887732_70223500292400'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.2ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (34.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (47.0ms)
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "carts" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2017-10-07 15:09:52.899184"], ["updated_at", "2017-10-07 15:09:52.899184"]]
+  [1m[35m (100.2ms)[0m  commit transaction
+  [1m[36mCart Load (0.4ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:10:00 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.6ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (12.5ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.1ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (30.8ms)
+Completed 200 OK in 152ms (Views: 143.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:10:33 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (3.0ms)
+Completed 200 OK in 120ms (Views: 117.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-218408cf494a351e4c6479d5457ac55b2b7c7363dac4fd33aabaab11da287f57.css?body=1" for 127.0.0.1 at 2017-10-07 21:10:33 +0600
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:11:56 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (4.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (5.4ms)
+Completed 200 OK in 77ms (Views: 74.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:13:06 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (4.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (4.1ms)
+Completed 200 OK in 87ms (Views: 84.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:13:37 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (4.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (4.6ms)
+Completed 200 OK in 89ms (Views: 85.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:14:32 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (4.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (3.7ms)
+Completed 200 OK in 80ms (Views: 76.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:14:53 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.4ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (5.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (16.4ms)
+Completed 200 OK in 96ms (Views: 93.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:16:00 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.5ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (4.0ms)
+Completed 200 OK in 73ms (Views: 70.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:16:05 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT "establishments".* FROM "establishments"[0m
+  Rendered establishments/index.html.erb within layouts/application (5.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (3.3ms)
+Completed 200 OK in 70ms (Views: 67.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/establishments/2" for 127.0.0.1 at 2017-10-07 21:16:23 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEstablishment Load (0.5ms)[0m  [1mSELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered establishments/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined method `avatar' for nil:NilClass):
+    1: <div class="row jumbotron">
+    2: 	<div class="col-md-3">
+    3: 		<%= image_tag @user.avatar.url(:medium), :class =>"img-rounded" %>
+    4: 	</div>
+    5: 	<div class="col-md-9">
+    6: 		<div class="row">
+  app/views/establishments/show.html.erb:3:in `_app_views_establishments_show_html_erb__3145778836654169555_70223497481800'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (21.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (43.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:19:03 +0600
+
+ArgumentError (Unknown validator: 'PrecenseValidator'):
+  app/models/user.rb:5:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  config/routes.rb:3:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (37.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (35.8ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (59.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:19:51 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.6ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (11.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (14.3ms)
+Completed 200 OK in 104ms (Views: 95.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:20:35 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (3.7ms)
+Completed 200 OK in 73ms (Views: 70.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:20:54 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (3.1ms)
+Completed 200 OK in 84ms (Views: 80.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-07 21:21:15 +0600
+Processing by EstablishmentsController#index as HTML
+  [1m[35mEstablishment Load (0.4ms)[0m  SELECT "establishments".* FROM "establishments"
+  Rendered establishments/index.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (3.0ms)
+Completed 200 OK in 66ms (Views: 63.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:21:40 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mEstablishment Load (0.3ms)[0m  SELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered establishments/show.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `avatar' for nil:NilClass):
+    1: <div class="row jumbotron">
+    2: 	<div class="col-md-3">
+    3: 		<%= image_tag @user.avatar.url(:medium), :class =>"img-rounded" %>
+    4: 	</div>
+    5: 	<div class="col-md-9">
+    6: 		<div class="row">
+  app/views/establishments/show.html.erb:3:in `_app_views_establishments_show_html_erb__3145778836654169555_70223497481800'
+
+
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.3ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.1ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/mazahaker/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (46.3ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:22:28 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?  [["establishment_id", 3]]
+  [1m[36mDish Load (0.2ms)[0m  [1mSELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?[0m  [["category_id", 4]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (63.5ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (4.5ms)
+Completed 200 OK in 179ms (Views: 173.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/line_items" for 127.0.0.1 at 2017-10-07 21:22:42 +0600
+Processing by LineItemsController#create as JS
+  Parameters: {"utf8"=>"✓", "line_item"=>{"title"=>"Caprese Salad", "price"=>"18.0", "cart_id"=>"1", "quantity"=>"1"}, "commit"=>"Добавить"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "line_items" ("title", "quantity", "price", "cart_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Caprese Salad"], ["quantity", 1], ["price", 18.0], ["cart_id", 1], ["created_at", "2017-10-07 15:22:42.474659"], ["updated_at", "2017-10-07 15:22:42.474659"]]
+  [1m[36m (95.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mCart Load (0.3ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (2.6ms)
+  Rendered line_items/_line_item.html.erb (16.2ms)
+  Rendered line_items/create.js.erb (19.2ms)
+Completed 200 OK in 128ms (Views: 25.8ms | ActiveRecord: 96.6ms)
+
+
+Started POST "/line_items" for 127.0.0.1 at 2017-10-07 21:22:45 +0600
+Processing by LineItemsController#create as JS
+  Parameters: {"utf8"=>"✓", "line_item"=>{"title"=>"Caprese Salad", "price"=>"18.0", "cart_id"=>"1", "quantity"=>"1"}, "commit"=>"Добавить"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_items" ("title", "quantity", "price", "cart_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Caprese Salad"], ["quantity", 1], ["price", 18.0], ["cart_id", 1], ["created_at", "2017-10-07 15:22:45.310596"], ["updated_at", "2017-10-07 15:22:45.310596"]]
+  [1m[35m (66.9ms)[0m  commit transaction
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (1.5ms)
+  Rendered line_items/_line_item.html.erb (9.4ms)
+  Rendered line_items/create.js.erb (10.6ms)
+Completed 200 OK in 86ms (Views: 13.6ms | ActiveRecord: 67.7ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:22:47 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEstablishment Load (0.2ms)[0m  [1mSELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?  [["establishment_id", 3]]
+  [1m[36mDish Load (0.6ms)[0m  [1mSELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?[0m  [["category_id", 4]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (10.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mLineItem Load (0.2ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (1.8ms)
+  Rendered line_items/_line_item.html.erb (7.9ms)
+Completed 200 OK in 133ms (Views: 128.4ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/line_items/destroy_all" for 127.0.0.1 at 2017-10-07 21:22:54 +0600
+Processing by LineItemsController#destroy_all as JS
+  [1m[36mSQL (83.8ms)[0m  [1mDELETE FROM "line_items"[0m
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (3.8ms)
+  Rendered line_items/destroy_all.js.erb (5.1ms)
+Completed 200 OK in 94ms (Views: 7.6ms | ActiveRecord: 84.1ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:22:56 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mEstablishment Load (0.2ms)[0m  SELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?[0m  [["establishment_id", 3]]
+  [1m[35mDish Load (0.1ms)[0m  SELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?  [["category_id", 4]]
+  [1m[36mCart Load (0.4ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  Rendered establishments/show.html.erb within layouts/application (8.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (2.9ms)
+Completed 200 OK in 78ms (Views: 74.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/line_items" for 127.0.0.1 at 2017-10-07 21:23:02 +0600
+Processing by LineItemsController#create as JS
+  Parameters: {"utf8"=>"✓", "line_item"=>{"title"=>"Caprese Salad", "price"=>"18.0", "cart_id"=>"1", "quantity"=>"1"}, "commit"=>"Добавить"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "line_items" ("title", "quantity", "price", "cart_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Caprese Salad"], ["quantity", 1], ["price", 18.0], ["cart_id", 1], ["created_at", "2017-10-07 15:23:02.955360"], ["updated_at", "2017-10-07 15:23:02.955360"]]
+  [1m[35m (84.7ms)[0m  commit transaction
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mLineItem Load (0.2ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (1.9ms)
+  Rendered line_items/_line_item.html.erb (8.7ms)
+  Rendered line_items/create.js.erb (9.8ms)
+Completed 200 OK in 102ms (Views: 12.0ms | ActiveRecord: 85.6ms)
+
+
+Started POST "/line_items" for 127.0.0.1 at 2017-10-07 21:23:09 +0600
+Processing by LineItemsController#create as JS
+  Parameters: {"utf8"=>"✓", "line_item"=>{"title"=>"Caprese Salad", "price"=>"18.0", "cart_id"=>"1", "quantity"=>"1"}, "commit"=>"Добавить"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "line_items" ("title", "quantity", "price", "cart_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Caprese Salad"], ["quantity", 1], ["price", 18.0], ["cart_id", 1], ["created_at", "2017-10-07 15:23:09.206358"], ["updated_at", "2017-10-07 15:23:09.206358"]]
+  [1m[36m (80.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?[0m  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (2.5ms)
+  Rendered line_items/_line_item.html.erb (9.4ms)
+  Rendered line_items/create.js.erb (10.6ms)
+Completed 200 OK in 97ms (Views: 12.9ms | ActiveRecord: 80.8ms)
+
+
+Started POST "/line_items" for 127.0.0.1 at 2017-10-07 21:23:18 +0600
+Processing by LineItemsController#create as JS
+  Parameters: {"utf8"=>"✓", "line_item"=>{"title"=>"Caprese Salad", "price"=>"18.0", "cart_id"=>"1", "quantity"=>"1"}, "commit"=>"Добавить"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "line_items" ("title", "quantity", "price", "cart_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Caprese Salad"], ["quantity", 1], ["price", 18.0], ["cart_id", 1], ["created_at", "2017-10-07 15:23:18.060259"], ["updated_at", "2017-10-07 15:23:18.060259"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (1.7ms)
+  Rendered line_items/_line_item.html.erb (9.4ms)
+  Rendered line_items/create.js.erb (10.8ms)
+Completed 200 OK in 112ms (Views: 16.2ms | ActiveRecord: 91.0ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:23:23 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEstablishment Load (0.2ms)[0m  [1mSELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?  [["establishment_id", 3]]
+  [1m[36mDish Load (0.2ms)[0m  [1mSELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?[0m  [["category_id", 4]]
+  [1m[35mCart Load (0.4ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (14.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (1.5ms)
+  Rendered line_items/_line_item.html.erb (7.8ms)
+Completed 200 OK in 94ms (Views: 90.5ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/line_items/3" for 127.0.0.1 at 2017-10-07 21:23:30 +0600
+Processing by LineItemsController#destroy as JS
+  Parameters: {"id"=>"3"}
+  [1m[36mLineItem Load (0.2ms)[0m  [1mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = ?[0m  [["id", 3]]
+  [1m[35m (86.2ms)[0m  commit transaction
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (1.5ms)
+  Rendered line_items/_line_item.html.erb (8.7ms)
+  Rendered line_items/destroy.js.erb (10.4ms)
+Completed 200 OK in 104ms (Views: 13.8ms | ActiveRecord: 87.2ms)
+
+
+Started DELETE "/line_items/4" for 127.0.0.1 at 2017-10-07 21:23:32 +0600
+Processing by LineItemsController#destroy as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = ?[0m  [["id", 4]]
+  [1m[35m (102.7ms)[0m  commit transaction
+  [1m[36mCart Load (0.2ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mLineItem Load (0.1ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered carts/_cart.html.erb (1.9ms)
+  Rendered line_items/_line_item.html.erb (7.4ms)
+  Rendered line_items/destroy.js.erb (9.1ms)
+Completed 200 OK in 118ms (Views: 11.4ms | ActiveRecord: 103.7ms)
+
+
+Started DELETE "/line_items/5" for 127.0.0.1 at 2017-10-07 21:23:32 +0600
+Processing by LineItemsController#destroy as JS
+  Parameters: {"id"=>"5"}
+  [1m[36mLineItem Load (0.1ms)[0m  [1mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "line_items" WHERE "line_items"."id" = ?[0m  [["id", 5]]
+  [1m[35m (93.2ms)[0m  commit transaction
+  [1m[36mCart Load (0.3ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (4.2ms)
+  Rendered line_items/destroy.js.erb (5.9ms)
+Completed 200 OK in 107ms (Views: 9.8ms | ActiveRecord: 94.1ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:23:33 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEstablishment Load (0.2ms)[0m  [1mSELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?  [["establishment_id", 3]]
+  [1m[36mDish Load (0.1ms)[0m  [1mSELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?[0m  [["category_id", 4]]
+  [1m[35mCart Load (0.2ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (9.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (2.5ms)
+Completed 200 OK in 74ms (Views: 71.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/establishments/3" for 127.0.0.1 at 2017-10-07 21:24:02 +0600
+Processing by EstablishmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEstablishment Load (0.3ms)[0m  [1mSELECT  "establishments".* FROM "establishments" WHERE "establishments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."establishment_id" = ?  [["establishment_id", 3]]
+  [1m[36mDish Load (0.1ms)[0m  [1mSELECT "dishes".* FROM "dishes" WHERE "dishes"."category_id" = ?[0m  [["category_id", 4]]
+  [1m[35mCart Load (0.4ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  Rendered establishments/show.html.erb within layouts/application (10.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "carts".* FROM "carts"  ORDER BY "carts"."id" DESC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "line_items" WHERE "line_items"."cart_id" = ?  [["cart_id", 1]]
+  Rendered line_items/_line_item.html.erb (2.5ms)
+Completed 200 OK in 74ms (Views: 69.8ms | ActiveRecord: 1.2ms)
