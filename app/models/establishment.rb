@@ -1,7 +1,8 @@
 class Establishment < ActiveRecord::Base
 	has_many :categories, dependent: :destroy
 
-  has_attached_file :image, styles: { medium: "300x300>" }
+  has_attached_file :image, styles: { medium: "300x300>", thumb: '150x150>' },
+  													default_url: '/images/:style/default.png'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   validates :title, presence: true, length: { maximum: 30 }

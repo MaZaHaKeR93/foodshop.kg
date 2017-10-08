@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'activeadmin'
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 gem 'simple_form'
 gem 'devise'
