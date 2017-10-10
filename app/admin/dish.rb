@@ -11,5 +11,5 @@ ActiveAdmin.register Dish do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+  permit_params :title, :price, :description, :establishment_id
 end

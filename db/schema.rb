@@ -28,30 +28,16 @@ ActiveRecord::Schema.define(version: 20171007160839) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", force: :cascade do |t|
+  create_table "dishes", force: :cascade do |t|
     t.string   "title"
+    t.text     "description"
+    t.decimal  "price"
     t.integer  "establishment_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  add_index "categories", ["establishment_id"], name: "index_categories_on_establishment_id"
-
-  create_table "dishes", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.decimal  "price"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "dishes", ["category_id"], name: "index_dishes_on_category_id"
+  add_index "dishes", ["establishment_id"], name: "index_dishes_on_establishment_id"
 
   create_table "establishments", force: :cascade do |t|
     t.string   "title"
@@ -68,12 +54,14 @@ ActiveRecord::Schema.define(version: 20171007160839) do
     t.string   "title"
     t.decimal  "price"
     t.integer  "quantity"
-    t.integer  "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "establishment_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["establishment_id"], name: "index_line_items_on_establishment_id"
+  add_index "line_items", ["user_id"], name: "index_line_items_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

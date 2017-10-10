@@ -1,7 +1,10 @@
 class LineItem < ActiveRecord::Base
-  belongs_to :cart
+  belongs_to :user
+  belongs_to :establishment
 
-  def pre_total_price
+  validates :quantity, presence: true, numericality: { greater_than: 0 }
+
+  def total_price
   	self.quantity * self.price
   end
 end

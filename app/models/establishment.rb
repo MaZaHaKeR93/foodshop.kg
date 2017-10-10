@@ -1,5 +1,6 @@
 class Establishment < ActiveRecord::Base
-	has_many :categories, dependent: :destroy
+	has_many :dishes, dependent: :destroy
+	has_many :line_items, dependent: :destroy
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: '150x150>' },
   													default_url: '/images/:style/default.png'
